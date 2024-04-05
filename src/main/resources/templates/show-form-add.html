@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trade Details</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <h4>
+        Enter Stock Details
+    </h4>
+    <hr>
+    <form class="card col-md-6 p-2" action="#" th:action="@{/trade/save}" th:object="${tradeDetail}" method="POST" >
+        <input type="hidden" th:field="*{id}" />
+        <div class="row mb-3">
+            <label for="stockName" class="col-sm-2 col-form-label">Stock Name</label>
+            <div class="col-sm-10">
+                <input type="text" th:field="*{stockName}" class="form-control" id="stockName">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="quantity" class="col-sm-2 col-form-label">Quantity</label>
+            <div class="col-sm-10">
+                <input type="number" th:field="*{quantity}" class="form-control" id="quantity">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="pricePerUnit" class="col-sm-2 col-form-label">Stock Price</label>
+            <div class="col-sm-10">
+                <input type="text" th:field="*{pricePerUnit}" class="form-control" id="pricePerUnit">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-md">Save</button>
+    </form>
+
+    <hr>
+    <a th:href="@{/trade}">Back to Trade List</a>
+    <br>
+</div>
+</body>
+</html>
